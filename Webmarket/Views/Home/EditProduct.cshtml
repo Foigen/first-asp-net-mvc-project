@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "EditProduct";
+}
+<style>
+    div {
+        padding 5px;
+        margin: 5px;
+    }
+</style>
+@model Webmarket.Models.Product
+<br />
+<h2>EditProduct</h2>
+@using (Html.BeginForm("EditProduct", "Home", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(m => m.Id, "Id")
+        @Html.DisplayFor(m => m.Id)
+        @Html.HiddenFor(m => m.Id)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Name, "Наименование")
+        @Html.DisplayFor(m => m.Name)
+        @Html.HiddenFor(m => m.Name)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Price, "Цена")
+        @Html.DisplayFor(m => m.Price)
+        @Html.HiddenFor(m => m.Price)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Number, "Количество")
+        @Html.EditorFor(m => m.Number, new { type = "number", min = 1, required = "required" })
+    </div>
+    <div>
+        <input type="submit" value="Отправить" />
+    </div>
+}
+

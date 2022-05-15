@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "AddProduct";
+}
+<style>
+    div {
+        padding 5px;
+        margin: 5px;
+    }
+</style>
+
+<h2>AddProduct</h2>
+@model Webmarket.Models.Product
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.TextBoxFor(model => model.Name, new { placeholder = "Название", required = "required" })
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.Price, new { type = "number", min = 1, placeholder = "Цена", required = "required" })
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.Number, new { type = "number", min = 1, placeholder = "Количество", required = "required" })
+    </div>
+    <div>
+        <input type="submit" value="Добавить" />
+    </div>
+}
+

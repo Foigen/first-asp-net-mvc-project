@@ -1,0 +1,26 @@
+﻿<style>
+    tr, td {
+        border: 3px solid gray;
+        text-align: center;
+        padding: 5px;
+    }
+</style>
+@{
+    ViewBag.Title = "Orders";
+    
+}
+
+<h2>Orders</h2>
+@model IEnumerable<Webmarket.Models.Order>
+<table>
+    @foreach (Webmarket.Models.Order m in Model)
+    {
+    <tr>
+        <td>@m.Id</td>
+        <td>@m.User</td>
+        <td>@m.Price</td>
+    </tr>
+    }
+</table>
+<a href="/Home/Index">На главную</a>
+

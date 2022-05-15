@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "ToBasket";
+}
+
+<h2>ToBasket</h2>
+@model Webmarket.Models.Product
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div>
+        @Html.HiddenFor(m => m.Id)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Name, "Наименование")
+        @Html.DisplayFor(m => m.Name)
+        @Html.HiddenFor(m => m.Name)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Price, "Цена")
+        @Html.DisplayFor(m => m.Price)
+        @Html.HiddenFor(m => m.Price)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Number, "Количество")
+        @Html.TextBoxFor(m => m.Number, new { type = "number", min = 1, required = "required" })
+        @Html.ValidationMessageFor(m => m.Number)
+    </div>
+    <div>
+        <input type="submit" value="Добавить в корзину" />
+    </div>
+}
+

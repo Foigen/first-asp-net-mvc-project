@@ -1,0 +1,29 @@
+﻿<style>
+    tr, td {
+        border: 3px solid gray;
+        text-align: center;
+        padding: 5px;
+    }
+</style>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>товары</h1>
+
+@model IEnumerable<Webmarket.Models.Product>
+<table>
+    @foreach (Webmarket.Models.Product m in Model)
+    {
+        <tr>
+            <td>@m.Name</td>
+            <td>@m.Price</td>
+            <td>@m.Number</td>
+            <td><a href="/Home/EditProduct/@m.Id">Изменить продукт</a></td>
+            <td><a href="/Home/ToBasket/@m.Id">В корзину</a></td>
+        </tr>
+    }
+</table>
+<a href="/Home/AddProduct">Добавить товар</a><br />
+<a href="/Home/Basket">Корзина</a><br />
+<a href="/Home/Orders">Заказы</a>
